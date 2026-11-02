@@ -1,0 +1,13 @@
+.yleinennappi {
+  border-radius: 10px;
+  background-color: #f0c14b;
+  border: 1px solid #a88734;
+
+}
+
+#esittely {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-bottom: 2px solid #f0c14b;
+}
