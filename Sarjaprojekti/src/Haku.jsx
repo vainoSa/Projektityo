@@ -1,0 +1,14 @@
+
+function Haku(){
+
+    return(
+     <main className="normaali">
+        <h1 id="Otsikko">Sarjahaku</h1>
+        <p id="esittely">Hae sarjoja ja kokoa katselu listasi!</p>
+        <button className="yleinennappi">Hae sarjoja! 🔍</button>
+    </main>
+    );
+
+}
+
+export default Haku;

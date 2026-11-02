@@ -11,3 +11,66 @@
   font-weight: bold;
   border-bottom: 2px solid #f0c14b;
 }
+
+.normaali{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.navbar1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  gap: 20px;
+  background-color: #f0c14b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navlogo  {
+  color: #0f0f0f;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navlogo:hover {
+  color: #a88734;
+}
+
+.navlinkit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.navlinkki {
+  color: #0f0f0f;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 12px;
+  text-weight: bold;
+  border-radius: 7px;
+}
+
+.navlinkki:hover {
+  background-color: #a88734;
+  color: #fff2a9;
+}
+
+.navlinkki.active {
+  background-color: #a88734;
+  color: #fff2a9;
+}
+
+@media (max-width: 600px){
+  .navbar1 {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navlinkki{
+    justify-content: center;
+  }
+}
