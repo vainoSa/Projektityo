@@ -3,9 +3,47 @@ import Lista from './Katselulista.jsx';
 import Haku from './Haku.jsx';
 import Tiedot from './Tiedot.jsx';
 import './App.css'
+import {useState, useEffect} from "react";
 
 function App() {
-  
+
+
+  const[katselulista, setKatselulista] = useState(() => {
+    try {
+      const tallennettuLista = localStorage.getItem("katselulista");
+
+      if (tallennettuLista) {
+        const lista = JSON.parse(tallennettuLista);
+        return Array.isArray(lista) ? lista : [];
+      }
+      return [];
+    } catch (error) {
+      console.error("Virhe ladattaessa katselulistaa:", error);
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("katselulista", JSON.stringify(katselulista));
+    } catch (error) {
+      console.error("Katselulistan tallennus epäonnistui:", error);
+    }
+  }, [katselulista]);
+
+  function lisaaKatselulistaan(sarja) {
+    setKatselulista((nykyinenLista) => {
+      const loytyyJo= nykyinenLista.some((tallennettuSarja) => tallennettuSarja.id === sarja.id);
+      if (loytyyJo) {
+        return nykyinenLista;
+      }
+      return [...nykyinenLista, {id: sarja.id, name: sarja.name, image: sarja.image}];
+    });
+  }
+
+  function poistaSarja(id) {
+    setKatselulista((nykyinenLista) => nykyinenLista.filter((sarja) => sarja.id !== id));
+  }
   return (
     <HashRouter>
       <nav className="navbar1" aria-label="Päänavigaatio">
@@ -24,9 +62,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Haku />} />
-        <Route path="/tiedot" element={<Tiedot />} />
-        <Route path="/tiedot/:id" element={<Tiedot />} />
-        <Route path="/katselulista" element={<Lista />} />
+        <Route path="/tiedot" element={<Tiedot lisaaSarja={lisaaKatselulistaan} />} />
+        <Route path="/tiedot/:id" element={<Tiedot lisaaSarja={lisaaKatselulistaan} />} />
+        <Route path="/katselulista" element={<Lista katselulista={katselulista} poistaSarja={poistaSarja} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
