@@ -2,7 +2,11 @@
   border-radius: 10px;
   background-color: #f0c14b;
   border: 1px solid #a88734;
+  margin: 10px;
+}
 
+.labeli {
+  margin: 5px;
 }
 
 #esittely {
@@ -50,7 +54,7 @@
   text-decoration: none;
   font-size: 1rem;
   padding: 8px 12px;
-  text-weight: bold;
+  font-weight: bold;
   border-radius: 7px;
 }
 
@@ -74,3 +78,5 @@
     justify-content: center;
   }
 }
+
+
