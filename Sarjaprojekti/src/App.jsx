@@ -25,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Haku />} />
         <Route path="/tiedot" element={<Tiedot />} />
+        <Route path="/tiedot/:id" element={<Tiedot />} />
         <Route path="/katselulista" element={<Lista />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
