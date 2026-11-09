@@ -1,6 +1,10 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
 
+/*  Haku funktio, jolla haetaan sarjoja ja niitten tietoja API:sta. Sisältää try ja catch lohkot, sitä varten, jso haku epäonnistuu. 
+    Async ja await funktiot , jolla odotetaan API:n vastaus. Kun vastaus saadaan se esitetään käyttäjälle
+*/
+
 function Haku(){
 
     const [hakusana, setHakusana] = useState("");
@@ -39,6 +43,8 @@ function Haku(){
         setLataus(false);
     }
 }
+
+    // Lohko, jolla esitetään haun tulokset käyttäjälle käyttäen Link komponenttia, millä päästään sarjan tietoihin. Esitetään kuvat ja nimet sarjoista, sarjan nimi on linkki.
 
     return(
      <main className="normaali">

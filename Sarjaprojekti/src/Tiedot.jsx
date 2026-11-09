@@ -1,6 +1,8 @@
 import {useParams, Link} from "react-router-dom";
 import {useState, useEffect} from "react";
 
+// Funktio, jolla haetaan sarjan tiedot API:sta. Try, catch, async, await lohkot millä odotetaan API:n vastaus ja esitetään mahdollisset errorit.
+
 function Tiedot({lisaaSarja}) {
     const {id} = useParams();
     const [sarja, setSarja] = useState(null);
@@ -43,11 +45,14 @@ function Tiedot({lisaaSarja}) {
         }
     }, [id]);
 
+    // Funktio millä muutetaan API:n html tekjsti string tekstiksi.
+
     function Tekstiksi(html) {
         const dokumentti = new DOMParser().parseFromString(html, "text/html");
         return dokumentti.body.textContent || "";
     }
 
+    // Return joka määärittää kuinka sarjan tiedot esitetään käyttäjälle. Kuva nimi genre ja yhteenveto. Lisäksi nappi jolla lisätään sarja katselulistaan.
 
     return(
         <main className="normaali">

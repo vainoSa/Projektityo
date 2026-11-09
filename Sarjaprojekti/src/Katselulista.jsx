@@ -1,3 +1,6 @@
+
+// Funktio joka esittää katselulistan käyttäjälle. Sisältää myös napin jolla poistetaan sarjoja.
+
 function Lista({katselulista, poistaSarja}) {
 
     return(

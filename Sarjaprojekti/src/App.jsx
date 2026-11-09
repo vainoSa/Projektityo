@@ -7,6 +7,8 @@ import {useState, useEffect} from "react";
 
 function App() {
 
+  // Katselulistan tietojen päivittämistä varten oleva useState hook, joka palauttaa tallennetun katselulistan jos sellainen on olemassa.
+  
 
   const[katselulista, setKatselulista] = useState(() => {
     try {
@@ -23,6 +25,8 @@ function App() {
     }
   });
 
+  // Katselulistan tallentamista varten oleva useEffect hook
+
   useEffect(() => {
     try {
       localStorage.setItem("katselulista", JSON.stringify(katselulista));
@@ -30,6 +34,8 @@ function App() {
       console.error("Katselulistan tallennus epäonnistui:", error);
     }
   }, [katselulista]);
+
+  // Funktio sarjan lisäykseen, tarkistetaan myös onko sarja jo listassa
 
   function lisaaKatselulistaan(sarja) {
     setKatselulista((nykyinenLista) => {
@@ -41,10 +47,14 @@ function App() {
     });
   }
 
+  // Funktio sarjan poistamiseen listalta
+
   function poistaSarja(id) {
     setKatselulista((nykyinenLista) => nykyinenLista.filter((sarja) => sarja.id !== id));
   }
   return (
+
+    // Sovelluksen navigaatio ja reititys
     <HashRouter>
       <nav className="navbar1" aria-label="Päänavigaatio">
         <NavLink to="/" className="navlogo">
